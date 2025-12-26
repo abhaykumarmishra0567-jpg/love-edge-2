@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoveBridge - Long Distance Relationship App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>LoveBridge</span>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-item active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+                <button class="nav-item" data-section="profile">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item" data-section="chat">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat</span>
+                    <span class="notification-badge" id="chatBadge" style="display: none;">0</span>
+                </button>
+                <button class="nav-item" data-section="anniversary">
+                    <i class="fas fa-calendar-heart"></i>
+                    <span>Anniversary</span>
+                </button>
+                <button class="nav-item" data-section="period">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Period Tracker</span>
+                </button>
+                <button class="nav-item" data-section="gallery">
+                    <i class="fas fa-images"></i>
+                    <span>Gallery</span>
+                </button>
+                <button class="nav-item" data-section="notes">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <span>Love Notes</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to <span class="gradient-text">LoveBridge</span></h1>
+                    <p class="hero-subtitle">Bridging Hearts Across Miles</p>
+                    <div class="hero-hearts">
+                        <i class="fas fa-heart heart-icon"></i>
+                        <i class="fas fa-heart heart-icon"></i>
+                        <i class="fas fa-heart heart-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Real-Time Chat</h3>
+                        <p>Stay connected with instant messaging</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-heart"></i>
+                        </div>
+                        <h3>Anniversary Counter</h3>
+                        <p>Never forget your special moments</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <h3>Photo Gallery</h3>
+                        <p>Cherish memories together</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h3>Love Notes</h3>
+                        <p>Send heartfelt messages</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-user-friends"></i> Our Love Story</h2>
+            </div>
+            <div class="couple-profiles">
+                <div class="profile-card" id="partner1Card">
+                    <div class="profile-image-container">
+                        <img id="partner1Image" src="" alt="Partner 1" style="display: none;">
+                        <div class="profile-placeholder" id="partner1Placeholder">
+                            <i class="fas fa-user"></i>
+                            <p>Upload Photo</p>
+                        </div>
+                        <input type="file" id="partner1Input" accept="image/*" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('partner1Input').click()">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="profile-name" id="partner1Name" placeholder="Partner 1 Name" maxlength="30">
+                    <textarea class="profile-bio" id="partner1Bio" placeholder="Write something sweet..." maxlength="150"></textarea>
+                </div>
+                
+                <div class="heart-connector">
+                    <i class="fas fa-heart"></i>
+                </div>
+                
+                <div class="profile-card" id="partner2Card">
+                    <div class="profile-image-container">
+                        <img id="partner2Image" src="" alt="Partner 2" style="display: none;">
+                        <div class="profile-placeholder" id="partner2Placeholder">
+                            <i class="fas fa-user"></i>
+                            <p>Upload Photo</p>
+                        </div>
+                        <input type="file" id="partner2Input" accept="image/*" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('partner2Input').click()">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="profile-name" id="partner2Name" placeholder="Partner 2 Name" maxlength="30">
+                    <textarea class="profile-bio" id="partner2Bio" placeholder="Write something sweet..." maxlength="150"></textarea>
+                </div>
+            </div>
+            <button class="save-btn" id="saveProfileBtn">
+                <i class="fas fa-save"></i> Save Profiles
+            </button>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-comments"></i> Chat with Your Love</h2>
+            </div>
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-status">
+                        <span class="status-dot online"></span>
+                        <span id="chatPartnerName">My Love</span>
+                    </div>
+                    <button class="clear-chat-btn" id="clearChatBtn" title="Clear chat history">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-date">Today</div>
+                </div>
+                <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="chat-input-container">
+                    <button class="emoji-btn" id="emojiBtn">
+                        <i class="far fa-smile"></i>
+                    </button>
+                    <div class="emoji-picker" id="emojiPicker" style="display: none;">
+                        <button class="emoji" data-emoji="❤️">❤️</button>
+                        <button class="emoji" data-emoji="😘">😘</button>
+                        <button class="emoji" data-emoji="🥰">🥰</button>
+                        <button class="emoji" data-emoji="😍">😍</button>
+                        <button class="emoji" data-emoji="💕">💕</button>
+                        <button class="emoji" data-emoji="💖">💖</button>
+                        <button class="emoji" data-emoji="💗">💗</button>
+                        <button class="emoji" data-emoji="💓">💓</button>
+                        <button class="emoji" data-emoji="💞">💞</button>
+                        <button class="emoji" data-emoji="💝">💝</button>
+                        <button class="emoji" data-emoji="🌹">🌹</button>
+                        <button class="emoji" data-emoji="🌺">🌺</button>
+                        <button class="emoji" data-emoji="😊">😊</button>
+                        <button class="emoji" data-emoji="😁">😁</button>
+                        <button class="emoji" data-emoji="🎉">🎉</button>
+                        <button class="emoji" data-emoji="✨">✨</button>
+                    </div>
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Type your message...">
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anniversary Section -->
+        <section id="anniversary" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-heart"></i> Our Special Moments</h2>
+            </div>
+            <div class="anniversary-container">
+                <div class="anniversary-form">
+                    <h3>Set Your Milestones</h3>
+                    <div class="form-group">
+                        <label><i class="fas fa-heart"></i> Relationship Started</label>
+                        <input type="date" id="relationshipDate" class="date-input">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-ring"></i> Engagement Date (Optional)</label>
+                        <input type="date" id="engagementDate" class="date-input">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-plus"></i> Custom Milestone</label>
+                        <input type="text" id="customMilestoneName" class="text-input" placeholder="e.g., First Date, First Kiss">
+                        <input type="date" id="customMilestoneDate" class="date-input">
+                    </div>
+                    <button class="save-btn" id="saveAnniversaryBtn">
+                        <i class="fas fa-save"></i> Save Dates
+                    </button>
+                </div>
+                
+                <div class="anniversary-display">
+                    <div class="counter-card main-counter" id="mainCounter">
+                        <h3>Together For</h3>
+                        <div class="counter-display">
+                            <div class="counter-item">
+                                <span class="counter-value" id="years">0</span>
+                                <span class="counter-label">Years</span>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-value" id="months">0</span>
+                                <span class="counter-label">Months</span>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-value" id="days">0</span>
+                                <span class="counter-label">Days</span>
+                            </div>
+                        </div>
+                        <p class="counter-subtitle">And still counting... ❤️</p>
+                    </div>
+                    
+                    <div id="additionalCounters"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Period Tracker Section -->
+        <section id="period" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-calendar-check"></i> Period Tracker</h2>
+                <p class="section-subtitle">Private and secure tracking for health monitoring</p>
+            </div>
+            <div class="period-container">
+                <div class="period-form">
+                    <h3>Track Your Cycle</h3>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-day"></i> Last Period Start Date</label>
+                        <input type="date" id="lastPeriodDate" class="date-input">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Average Cycle Length (days)</label>
+                        <input type="number" id="cycleLength" class="text-input" value="28" min="20" max="40">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-hourglass-half"></i> Period Duration (days)</label>
+                        <input type="number" id="periodDuration" class="text-input" value="5" min="2" max="10">
+                    </div>
+                    <button class="save-btn" id="savePeriodBtn">
+                        <i class="fas fa-save"></i> Save & Calculate
+                    </button>
+                </div>
+                
+                <div class="period-display">
+                    <div class="period-info-card">
+                        <h3>Cycle Information</h3>
+                        <div class="period-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div>
+                                    <span class="stat-label">Next Period</span>
+                                    <span class="stat-value" id="nextPeriodDate">Not set</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-heart-pulse"></i>
+                                <div>
+                                    <span class="stat-label">Days Until</span>
+                                    <span class="stat-value" id="daysUntilPeriod">-</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-spa"></i>
+                                <div>
+                                    <span class="stat-label">Fertile Window</span>
+                                    <span class="stat-value" id="fertileWindow">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                            <h3 id="currentMonth">January 2024</h3>
+                            <button class="calendar-nav" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar" id="periodCalendar"></div>
+                        <div class="calendar-legend">
+                            <div class="legend-item">
+                                <span class="legend-color period"></span>
+                                <span>Period</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color fertile"></span>
+                                <span>Fertile</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color today"></span>
+                                <span>Today</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-images"></i> Our Memories</h2>
+                <button class="add-btn" id="addPhotoBtn">
+                    <i class="fas fa-plus"></i> Add Photos
+                </button>
+            </div>
+            <input type="file" id="galleryInput" accept="image/*" multiple style="display: none;">
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-placeholder">
+                    <i class="fas fa-camera"></i>
+                    <p>No photos yet. Start adding your beautiful memories!</p>
+                    <button class="add-btn" onclick="document.getElementById('galleryInput').click()">
+                        <i class="fas fa-upload"></i> Upload Photos
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Notes Section -->
+        <section id="notes" class="section">
+            <div class="section-header">
+                <h2><i class="fas fa-envelope-open-text"></i> Love Notes</h2>
+                <button class="add-btn" id="addNoteBtn">
+                    <i class="fas fa-plus"></i> New Note
+                </button>
+            </div>
+            <div class="notes-container">
+                <div class="note-form" id="noteForm" style="display: none;">
+                    <h3>Write a Love Note</h3>
+                    <input type="text" id="noteTitle" class="text-input" placeholder="Give it a title...">
+                    <textarea id="noteContent" class="note-textarea" placeholder="Pour your heart out..."></textarea>
+                    <div class="note-actions">
+                        <button class="cancel-btn" id="cancelNoteBtn">Cancel</button>
+                        <button class="save-btn" id="saveNoteBtn">
+                            <i class="fas fa-heart"></i> Send Note
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="notes-grid" id="notesGrid">
+                    <div class="notes-placeholder">
+                        <i class="fas fa-envelope"></i>
+                        <p>No love notes yet. Write something special!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <p class="footer-text">Made with <span class="heart-pulse">❤️</span> for couples around the world</p>
+            <p class="creator-credit">Created by <strong>HARSHU</strong></p>
+            <p class="footer-tagline">"Distance means so little when someone means so much"</p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
